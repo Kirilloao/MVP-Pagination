@@ -14,16 +14,19 @@ protocol DetailsViewPresenterProtocol {
 
 final class DetailsPresenter: DetailsViewPresenterProtocol {
     
+    // MARK: - Private Properties
     private var view: DetailsViewControllerProtocol!
     private var networkManager: NetworkManagerProtocol!
     private var image: String
     
+    // MARK: - Init
     init(_ view: DetailsViewControllerProtocol, networkManager: NetworkManagerProtocol, image: String) {
         self.view = view
         self.image = image
         self.networkManager = networkManager
     }
     
+    // MARK: - Public Methods
     func showImage() {
         guard let url = URL(string: image) else { return }
         networkManager.fetchImage(with: url) { result in

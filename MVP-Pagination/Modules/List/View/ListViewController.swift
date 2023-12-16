@@ -40,8 +40,6 @@ final class ListViewController: UIViewController {
         setupConstraints()
     }
     
-
-    
     // MARK: - Private Methods
     private func setupTableView() {
         tableView.separatorStyle = .none
