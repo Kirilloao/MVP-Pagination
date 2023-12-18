@@ -9,7 +9,7 @@ import Foundation
 
 protocol ListPresenterProtocol: AnyObject {
     var list: [String] { get }
-    init(view: ListViewControllerProtocol, networkManager: NetworkManagerProtocol, router: RouterProtocol)
+    init(view: ListViewControllerProtocol, networkManager: NetworkManagerProtocol, coordinator: CoordinatorProtocol)
     func getImages()
     func loadNextPage()
     func tapOnImage(image: String)
@@ -22,15 +22,15 @@ final class ListPresenter: ListPresenterProtocol {
     
     // MARK: - Private Properties
     private unowned let view: ListViewControllerProtocol
+    private var coordinator: CoordinatorProtocol
     private var pageNumber = 0
-    private var router: RouterProtocol?
     private var networkManager: NetworkManagerProtocol!
     
     // MARK: - Init
-    init(view: ListViewControllerProtocol, networkManager: NetworkManagerProtocol, router: RouterProtocol) {
+    init(view: ListViewControllerProtocol, networkManager: NetworkManagerProtocol, coordinator: CoordinatorProtocol) {
         self.view = view
-        self.router = router
         self.networkManager = networkManager
+        self.coordinator = coordinator
     }
     
     // MARK: - Public Methods
@@ -69,6 +69,6 @@ final class ListPresenter: ListPresenterProtocol {
     }
     
     func tapOnImage(image: String) {
-        router?.showDetails(image: image)
+        coordinator.showDetails(with: image)
     }
 }
