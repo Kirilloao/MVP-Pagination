@@ -8,8 +8,8 @@
 import Foundation
 
 protocol ListPresenterProtocol: AnyObject {
+    var list: [String] { get }
     init(view: ListViewControllerProtocol, networkManager: NetworkManagerProtocol, router: RouterProtocol)
-    var list: [String] { get set }
     func getImages()
     func loadNextPage()
     func tapOnImage(image: String)
@@ -35,7 +35,7 @@ final class ListPresenter: ListPresenterProtocol {
     
     // MARK: - Public Methods
     func getImages() {
-        NetworkManager.shared.fetchUrls(with: pageNumber) { [weak self] result in
+        networkManager.fetchUrls(with: pageNumber, pagination: false) { [weak self] result in
             switch result {
             case .success(let list):
                 self?.list = list
@@ -56,7 +56,7 @@ final class ListPresenter: ListPresenterProtocol {
         
         networkManager.fetchUrls(with: pageNumber, pagination: true) { [weak self] result in
             defer {
-                NetworkManager.shared.isPaginating = false
+                self?.networkManager.isPaginating = false
             }
             switch result {
             case .success(let list):

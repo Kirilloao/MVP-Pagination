@@ -16,20 +16,13 @@ final class ListViewController: UIViewController {
     // MARK: - Presenter
     var presenter: ListPresenterProtocol?
     
+    // MARK: - NetworkManager
+    private let networkManager = NetworkManager()
+    
     // MARK: - Private Properties
     private var tableViewBuilder: TableViewBuilder!
     private let tableView = UITableView(frame: .zero, style: .grouped)
     private var images: [String] = []
-    
-    // MARK: - Init
-    init() {
-        super.init(nibName: nil, bundle: nil)
-        self.tableViewBuilder = TableViewBuilder(tableView: tableView)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     // MARK: - Life Cycle Methods
     override func viewDidLoad() {
@@ -48,7 +41,7 @@ final class ListViewController: UIViewController {
             var cellModel = CellModel(identifier: ImageCell.reuseID)
             
             
-            cellModel.onfil = { cell, indexPath in
+            cellModel.onfil = { cell, _ in
                 if let customCell = cell as? ImageCell {
                     customCell.configure(image)
                 }
@@ -64,8 +57,10 @@ final class ListViewController: UIViewController {
         
         tableViewBuilder.onScroll = { scrollView in
             let position = scrollView.contentOffset.y
-            if position > (self.tableView.contentSize.height-100-scrollView.frame.size.height) {
-                guard !NetworkManager.shared.isPaginating else {
+            if position > (
+                self.tableView.contentSize.height - 100 - scrollView.frame.size.height
+            ) {
+                guard !self.networkManager.isPaginating else {
                     return
                 }
                 
@@ -79,6 +74,7 @@ final class ListViewController: UIViewController {
     }
     
     private func registerCell() {
+        tableViewBuilder = TableViewBuilder(tableView: tableView)
         tableView.register(ImageCell.self, forCellReuseIdentifier: ImageCell.reuseID)
     }
 }

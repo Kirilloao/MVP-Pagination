@@ -23,9 +23,6 @@ protocol NetworkManagerProtocol {
 
 // MARK: - NetworkManager
 final class NetworkManager: NetworkManagerProtocol {
-    static let shared = NetworkManager()
-    
-    private init() {}
     
     var isPaginating = false
     

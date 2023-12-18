@@ -17,7 +17,7 @@ protocol ModuleBuilderProtocol {
 final class ModuleBuilder: ModuleBuilderProtocol {
     func createListModule(router: RouterProtocol) -> UIViewController {
         let view = ListViewController()
-        let networkManager = NetworkManager.shared
+        let networkManager = NetworkManager()
         let presenter = ListPresenter(view: view, networkManager: networkManager, router: router)
         view.presenter = presenter
         return view
@@ -25,7 +25,7 @@ final class ModuleBuilder: ModuleBuilderProtocol {
     
     func createDetailsModule(image: String?, router: RouterProtocol) -> UIViewController {
         let view = DetailsViewController()
-        let networkManager = NetworkManager.shared
+        let networkManager = NetworkManager()
         let presenter = DetailsPresenter(view, networkManager: networkManager, image: image ?? "")
         view.presenter = presenter
         return view

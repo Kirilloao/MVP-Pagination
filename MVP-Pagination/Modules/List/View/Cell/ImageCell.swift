@@ -10,8 +10,11 @@ import SnapKit
 
 final class ImageCell: UITableViewCell {
     
-    // MARK: - Static Properties
+    // MARK: - ReuseID
     static let reuseID = String(describing: ImageCell.self)
+    
+    // MARK: - NetworkManager
+    private let  networkManager = NetworkManager()
     
     // MARK: - Private UI Properties
     private lazy var mainImageView: UIImageView = {
@@ -57,7 +60,7 @@ final class ImageCell: UITableViewCell {
             return
         }
         
-        NetworkManager.shared.fetchImage(with: url) { result in
+        networkManager.fetchImage(with: url) { result in
             switch result {
             case .success(let imageData):
                 guard let uiImage = UIImage(data: imageData) else { return }
