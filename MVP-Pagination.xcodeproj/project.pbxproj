@@ -21,11 +21,11 @@
 		3CCCA1912B207F4400776433 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCCA1902B207F4400776433 /* ImageCell.swift */; };
 		3CCCA1942B20802600776433 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3CCCA1932B20802600776433 /* SnapKit */; };
 		3CCCA1CB2B23537A00776433 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCCA1CA2B23537A00776433 /* ListPresenter.swift */; };
-		3CCCA1CE2B23555100776433 /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCCA1CD2B23555100776433 /* ModuleBuilder.swift */; };
 		3CCCA1D12B23616C00776433 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCCA1D02B23616C00776433 /* ImageCacheManager.swift */; };
-		3CCCA1D62B24751500776433 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCCA1D52B24751500776433 /* Router.swift */; };
 		3CCCA1DC2B24823A00776433 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCCA1DB2B24823A00776433 /* DetailsViewController.swift */; };
 		3CCCA1DE2B2489F800776433 /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCCA1DD2B2489F800776433 /* DetailsPresenter.swift */; };
+		3CD188142B30D31500AB7F3A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD188132B30D31500AB7F3A /* AppCoordinator.swift */; };
+		3CD188742B32FF2B00AB7F3A /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD188732B32FF2B00AB7F3A /* ModuleBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,11 +44,11 @@
 		3CCCA18D2B2076B200776433 /* ImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResponse.swift; sourceTree = "<group>"; };
 		3CCCA1902B207F4400776433 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		3CCCA1CA2B23537A00776433 /* ListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
-		3CCCA1CD2B23555100776433 /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
 		3CCCA1D02B23616C00776433 /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
-		3CCCA1D52B24751500776433 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		3CCCA1DB2B24823A00776433 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		3CCCA1DD2B2489F800776433 /* DetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenter.swift; sourceTree = "<group>"; };
+		3CD188132B30D31500AB7F3A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		3CD188732B32FF2B00AB7F3A /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,9 +165,9 @@
 		3CCCA17D2B1FA1CD00776433 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				3CCCA1D42B24750B00776433 /* Router */,
+				3CD188722B32FF1F00AB7F3A /* ModuleBuilder */,
+				3CD188122B30D2F000AB7F3A /* Coordinator */,
 				3CCCA1CF2B23615D00776433 /* ImageCacheManager */,
-				3CCCA1CC2B23553F00776433 /* ModuleBuilder */,
 				3CCCA1882B1FA44E00776433 /* NetworkManager */,
 				3CCCA1802B1FA28900776433 /* TableViewBuilder */,
 			);
@@ -209,28 +209,12 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		3CCCA1CC2B23553F00776433 /* ModuleBuilder */ = {
-			isa = PBXGroup;
-			children = (
-				3CCCA1CD2B23555100776433 /* ModuleBuilder.swift */,
-			);
-			path = ModuleBuilder;
-			sourceTree = "<group>";
-		};
 		3CCCA1CF2B23615D00776433 /* ImageCacheManager */ = {
 			isa = PBXGroup;
 			children = (
 				3CCCA1D02B23616C00776433 /* ImageCacheManager.swift */,
 			);
 			path = ImageCacheManager;
-			sourceTree = "<group>";
-		};
-		3CCCA1D42B24750B00776433 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				3CCCA1D52B24751500776433 /* Router.swift */,
-			);
-			path = Router;
 			sourceTree = "<group>";
 		};
 		3CCCA1D72B24821500776433 /* View */ = {
@@ -247,6 +231,22 @@
 				3CCCA1DD2B2489F800776433 /* DetailsPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		3CD188122B30D2F000AB7F3A /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				3CD188132B30D31500AB7F3A /* AppCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		3CD188722B32FF1F00AB7F3A /* ModuleBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				3CD188732B32FF2B00AB7F3A /* ModuleBuilder.swift */,
+			);
+			path = ModuleBuilder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,6 +327,7 @@
 			files = (
 				3CCCA1D12B23616C00776433 /* ImageCacheManager.swift in Sources */,
 				3CCCA18E2B2076B200776433 /* ImageResponse.swift in Sources */,
+				3CD188142B30D31500AB7F3A /* AppCoordinator.swift in Sources */,
 				3CCCA1662B1F9F3400776433 /* ListViewController.swift in Sources */,
 				3CCCA1872B1FA31600776433 /* HeaderModel.swift in Sources */,
 				3CCCA1622B1F9F3400776433 /* AppDelegate.swift in Sources */,
@@ -334,11 +335,10 @@
 				3CCCA18A2B1FA46100776433 /* NetworkManager.swift in Sources */,
 				3CCCA1832B1FA2A800776433 /* CellModel.swift in Sources */,
 				3CCCA17F2B1FA1DC00776433 /* TableViewBuilder.swift in Sources */,
-				3CCCA1D62B24751500776433 /* Router.swift in Sources */,
 				3CCCA1CB2B23537A00776433 /* ListPresenter.swift in Sources */,
+				3CD188742B32FF2B00AB7F3A /* ModuleBuilder.swift in Sources */,
 				3CCCA1852B1FA2E100776433 /* SectionModel.swift in Sources */,
 				3CCCA1912B207F4400776433 /* ImageCell.swift in Sources */,
-				3CCCA1CE2B23555100776433 /* ModuleBuilder.swift in Sources */,
 				3CCCA1DC2B24823A00776433 /* DetailsViewController.swift in Sources */,
 				3CCCA1DE2B2489F800776433 /* DetailsPresenter.swift in Sources */,
 			);
