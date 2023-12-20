@@ -8,7 +8,7 @@
 import UIKit
 
 // MARK: - Coordinator
-protocol CoordinatorProtocol {
+protocol CoordinatorProtocol: AnyObject {
     func start()
     func showDetails(with image: String)
 }
@@ -16,25 +16,21 @@ protocol CoordinatorProtocol {
 // MARK: - AppCoordinator
 final class AppCoordinator: CoordinatorProtocol {
 
-    var navigationController: UINavigationController
+    private var navigationController: UINavigationController
+    private let moduleBuilder = ModuleBuilder()
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
     func start() {
-        let listVC = ListViewController()
-        let networkManager = NetworkManager()
-        let presenter = ListPresenter(view: listVC, networkManager: networkManager, coordinator: self)
-        listVC.presenter = presenter
+        let listVC = moduleBuilder.createListModule(with: self)
         navigationController.pushViewController(listVC, animated: false)
     }
     
     func showDetails(with image: String) {
-        let detailVC = DetailsViewController()
-        let networkManager = NetworkManager()
-        let presenter = DetailsPresenter(detailVC, networkManager: networkManager, image: image)
-        detailVC.presenter = presenter
+        let detailVC = moduleBuilder.createDetailsModule(image: image)
         navigationController.pushViewController(detailVC, animated: true)
     }
+
 }

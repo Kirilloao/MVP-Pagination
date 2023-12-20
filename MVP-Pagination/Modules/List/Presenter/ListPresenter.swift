@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - ListPresenterProtocol
 protocol ListPresenterProtocol: AnyObject {
     var list: [String] { get }
     init(view: ListViewControllerProtocol, networkManager: NetworkManagerProtocol, coordinator: CoordinatorProtocol)
@@ -15,25 +16,22 @@ protocol ListPresenterProtocol: AnyObject {
     func tapOnImage(image: String)
 }
 
+// MARK: - ListPresenter
 final class ListPresenter: ListPresenterProtocol {
     
-    // MARK: - Public Properties
     var list: [String] = []
     
-    // MARK: - Private Properties
     private unowned let view: ListViewControllerProtocol
-    private var coordinator: CoordinatorProtocol
+    private unowned var coordinator: CoordinatorProtocol
     private var pageNumber = 0
     private var networkManager: NetworkManagerProtocol!
     
-    // MARK: - Init
     init(view: ListViewControllerProtocol, networkManager: NetworkManagerProtocol, coordinator: CoordinatorProtocol) {
         self.view = view
         self.networkManager = networkManager
         self.coordinator = coordinator
     }
     
-    // MARK: - Public Methods
     func getImages() {
         networkManager.fetchUrls(with: pageNumber, pagination: false) { [weak self] result in
             switch result {

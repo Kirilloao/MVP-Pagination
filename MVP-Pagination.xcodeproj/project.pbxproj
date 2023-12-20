@@ -25,6 +25,7 @@
 		3CCCA1DC2B24823A00776433 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCCA1DB2B24823A00776433 /* DetailsViewController.swift */; };
 		3CCCA1DE2B2489F800776433 /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCCA1DD2B2489F800776433 /* DetailsPresenter.swift */; };
 		3CD188142B30D31500AB7F3A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD188132B30D31500AB7F3A /* AppCoordinator.swift */; };
+		3CD188742B32FF2B00AB7F3A /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD188732B32FF2B00AB7F3A /* ModuleBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		3CCCA1DB2B24823A00776433 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		3CCCA1DD2B2489F800776433 /* DetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenter.swift; sourceTree = "<group>"; };
 		3CD188132B30D31500AB7F3A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		3CD188732B32FF2B00AB7F3A /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 		3CCCA17D2B1FA1CD00776433 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3CD188722B32FF1F00AB7F3A /* ModuleBuilder */,
 				3CD188122B30D2F000AB7F3A /* Coordinator */,
 				3CCCA1CF2B23615D00776433 /* ImageCacheManager */,
 				3CCCA1882B1FA44E00776433 /* NetworkManager */,
@@ -236,6 +239,14 @@
 				3CD188132B30D31500AB7F3A /* AppCoordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		3CD188722B32FF1F00AB7F3A /* ModuleBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				3CD188732B32FF2B00AB7F3A /* ModuleBuilder.swift */,
+			);
+			path = ModuleBuilder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,6 +336,7 @@
 				3CCCA1832B1FA2A800776433 /* CellModel.swift in Sources */,
 				3CCCA17F2B1FA1DC00776433 /* TableViewBuilder.swift in Sources */,
 				3CCCA1CB2B23537A00776433 /* ListPresenter.swift in Sources */,
+				3CD188742B32FF2B00AB7F3A /* ModuleBuilder.swift in Sources */,
 				3CCCA1852B1FA2E100776433 /* SectionModel.swift in Sources */,
 				3CCCA1912B207F4400776433 /* ImageCell.swift in Sources */,
 				3CCCA1DC2B24823A00776433 /* DetailsViewController.swift in Sources */,
