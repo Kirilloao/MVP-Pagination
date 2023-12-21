@@ -21,8 +21,8 @@ final class ListPresenter: ListPresenterProtocol {
     
     var list: [String] = []
     
-    private unowned let view: ListViewControllerProtocol
-    private unowned var coordinator: CoordinatorProtocol
+    private let view: ListViewControllerProtocol
+    private var coordinator: CoordinatorProtocol
     private var pageNumber = 0
     private var networkManager: NetworkManagerProtocol!
     
